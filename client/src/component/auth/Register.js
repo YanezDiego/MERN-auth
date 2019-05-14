@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Link from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 class Register extends Component{
@@ -15,7 +15,7 @@ class Register extends Component{
     }
 
     onChange = e => {
-        this.ListeningStateChangedEvent({
+        this.setState({
             [e.target.id]: e.target.value
         })
     };
@@ -39,7 +39,7 @@ class Register extends Component{
                 <div className="row">
                     <div className="col s8 offset-s2">
                         <Link to="/" className="btn-flat waves-effect">
-                            <i className="material-icons left">Keyboard_backspace</i> Back to Home
+                            <i className="material-icons left">Keyboard_backspace</i>Back to Home
                         </Link>
                     <div className="col s12" style={{
                         paddingLeft: "11.250px"
@@ -54,10 +54,42 @@ class Register extends Component{
 
                     <form noValidate onSubmit={this.onSubmit}>
                       <div className="input-field col s12">
-                        <input >
+                        <input onChange={this.onChange}
+                        value={this.state.name}
+                        error={errors.name}
+                        id="name"
+                        type="text"/>
+                        
+                        <label htmlFor="name">Name</label>
+                      </div>
+                      <div className="input-field col s12">
+                        <input onChange={this.onChange}
+                              value={this.state.email}
+                              error={errors.email}
+                              id="email"
+                              type="email"/>
+                          
+                        <label htmlFor="email">Email</label>
+                      </div>
+                      <div className="input-field col s12">
+                        <input onChange={this.onChange}
+                            value={this.state.password}
+                            error={errors.password}
+                            id="password"
+                            type="password"/>
+                          
+                        <label htmlFor="password">Password</label>
+                      </div>
+                      <div classNmae="input-field col s12">
+                        <input onChange={this.onChange}
+                            value={this.state.password2}
+                            error={errors.password2}
+                            id="password2"
+                            type="password"/>
+                        <label htmlFor="password2">Repeat Password</label>
+                        
+                      </div>
 
-                        </input>
-                      </div>  
                     </form>
 
                     </div>
